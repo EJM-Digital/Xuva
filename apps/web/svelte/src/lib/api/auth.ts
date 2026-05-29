@@ -44,13 +44,6 @@ export interface ClientBootstrapResponse {
 export interface LoginRequest {
 	username: string;
 	password: string;
-	/**
-	 * When true, ask the server to issue an extended (90-day) session instead
-	 * of the default 24-hour session. Wired to the "Trust this device"
-	 * checkbox on the sign-in form. Server-side flag — does NOT change the
-	 * client's local token storage strategy (which is always localStorage).
-	 */
-	trustDevice?: boolean;
 }
 
 export interface BootstrapRequest extends LoginRequest {
@@ -132,13 +125,6 @@ export async function logout(client: ApiClient = apiClient): Promise<{ status: s
 		return await client.send<{ status: string }, Record<string, never>>('/api/auth/logout', {}, 'POST');
 	} finally {
 		clearAuthToken();
-		// Clear any device-remembered or tab-remembered profile selection so
-		// the next user signing into the same browser sees the profile picker
-		// fresh instead of being auto-picked into the previous user's profile.
-		try {
-			if (typeof localStorage !== 'undefined') localStorage.removeItem('xuva-profile-card-device');
-			if (typeof sessionStorage !== 'undefined') sessionStorage.removeItem('xuva-profile-card');
-		} catch { /* storage access denied */ }
 		// Wipe the offline caches so a different user signing into the same
 		// browser doesn't inherit the previous session's library data.
 		// We invalidate the SWR layer asynchronously (errors are swallowed —

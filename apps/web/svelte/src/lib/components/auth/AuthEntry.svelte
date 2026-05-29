@@ -28,8 +28,6 @@
 	let bootstrapRole = $state<'admin' | 'standard'>('admin');
 	let password = $state('');
 	let confirmPassword = $state('');
-	// #418 sign-in additions — trust this device + watchdog against hangs.
-	let trustDevice = $state(false);
 
 	let language = $state('en');
 	let serverName = $state('Xuva');
@@ -54,19 +52,7 @@
 	});
 
 	onMount(() => {
-		// #418 watchdog: regardless of what happens inside initialize(), force
-		// the sign-in form to appear after 2.5 seconds. The original bug had
-		// initialize() never running (top-level import side-effect breaking
-		// onMount), which left isLoading=true forever and locked users out of
-		// the only entry point to the app. The watchdog guarantees a usable
-		// form even when the hydration path is broken — the underlying cause
-		// then surfaces on form submit instead of as a silent hang.
-		//
-		// 2.5s is long enough that a healthy server (typically responds in
-		// <100ms) shows no flicker, and short enough that a broken state
-		// recovers to a usable form before the user gives up.
-		const watchdog = setTimeout(() => { isLoading = false; }, 2500);
-		void initialize().finally(() => clearTimeout(watchdog));
+		void initialize();
 	});
 
 	async function initialize(): Promise<void> {
@@ -101,13 +87,9 @@
 				window.location.href = '/';
 				return;
 			}
-		} catch (err) {
+		} catch {
 			// Server may be temporarily unreachable — fall through to the sign-in form.
 			// Meaningful errors will surface when the user actually submits.
-			// Logged so future regressions of #418 are visible in DevTools.
-			if (typeof console !== 'undefined') {
-				console.error('[AuthEntry.initialize] failed', err);
-			}
 		} finally {
 			isLoading = false;
 		}
@@ -175,7 +157,7 @@
 
 		isSubmitting = true;
 		try {
-			await login({ username: usernameValue, password: passwordValue, trustDevice });
+			await login({ username: usernameValue, password: passwordValue });
 			window.location.href = '/';
 		} catch (error) {
 			errorMessage = formatAuthError(error, 'Sign-in failed.');
@@ -357,21 +339,6 @@
 						class="h-11 w-full rounded-xl border border-border bg-background/40 px-4 text-sm outline-none placeholder:text-muted-foreground/60 focus:border-primary/60 focus:bg-background/70"
 					/>
 				</div>
-
-				<!-- Trust this device — extends the issued session to 90 days
-				     instead of the default 24 hours. Off by default per the
-				     user's security-conservative call; the label explains the
-				     trade-off so users can opt in informedly. -->
-				<label class="flex cursor-pointer select-none items-center gap-2.5 text-sm">
-					<input
-						type="checkbox"
-						bind:checked={trustDevice}
-						class="h-4 w-4 rounded border-border bg-background/40 text-primary focus:ring-2 focus:ring-primary/40"
-					/>
-					<span class="text-muted-foreground">
-						Trust this device <span class="text-muted-foreground/60">(stay signed in for 90 days)</span>
-					</span>
-				</label>
 
 				{#if errorMessage}
 					<p class="rounded-xl bg-destructive/10 px-4 py-3 text-sm text-destructive">

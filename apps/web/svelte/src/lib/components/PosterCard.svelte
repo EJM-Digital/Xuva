@@ -19,32 +19,11 @@
   const art = $derived(artworkSrc(media, artType, artWidth, rawArt));
   const artSrcset = $derived(artworkSrcset(media, artType, artWidth));
 
-  // #407 — context-aware click target.
-  //
-  // Continue Watching items (those carrying parentId + parentKind from the
-  // server's resume-rows endpoint) click straight into the player at the
-  // remembered position. Intent on a resume card is unambiguous; making the
-  // user round-trip through a detail page just to hit Play adds friction
-  // Netflix/Plex/Emby don't have.
-  //
-  // Everything else (library posters, More Like This rows, search results,
-  // detail-page suggestions, etc.) keeps the detail-first behaviour. Detail
-  // is the right default for discovery surfaces — users browsing the library
-  // expect to read about a title before committing to watch it.
-  //
-  // For CW items, `media.id` IS the mediaSourceId (the resume endpoint keys
-  // its response by media source so the player knows which specific file +
-  // position to resume). The detail page expects the parent movie/series id
-  // — that's why parentId/parentKind exist as separate fields.
-  const isResumeCard = $derived(!!(media.parentId && media.parentKind));
+  // Continue-Watching items come keyed by media_source_id but the detail page
+  // expects the parent movie/series id. Use parentId/parentKind when present.
   const href = $derived.by(() => {
-    if (isResumeCard) {
-      // Play URL mirrors the movie/series detail page's basePlayUrl format:
-      // /play/{mediaSourceId}?title={...}&back={detail-or-home}. back points at
-      // the matching detail page so closing the player lands somewhere
-      // meaningful rather than the home page.
-      const back = media.parentKind === 'series' ? `/tv/${media.parentId}` : `/movies/${media.parentId}`;
-      return `/play/${media.id}?title=${encodeURIComponent(media.title)}&back=${encodeURIComponent(back)}`;
+    if (media.parentId && media.parentKind) {
+      return media.parentKind === 'series' ? `/tv/${media.parentId}` : `/movies/${media.parentId}`;
     }
     return media.type === 'Series' ? `/tv/${media.id}` : `/movies/${media.id}`;
   });
@@ -133,28 +112,14 @@
       </div>
     </div>
 
-    <!-- Hover overlay. For Continue Watching cards this is honest because the
-         parent <a> now actually navigates to /play (see href above). For
-         library/discovery cards the play icon stays as a visual hint that the
-         underlying title is watchable — clicking still takes you to the
-         detail page where the same Play button lives prominently. The
-         "Resume" pill is shown only on resume cards so users can tell at a
-         glance which click means "play immediately" vs which means "open
-         detail." -->
     <div class="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-      <div class="flex flex-col items-center gap-2">
-        <span
-          class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary shadow-glow ring-1 ring-white/30 transition-transform group-hover:scale-110"
-          aria-label={isResumeCard ? `Resume ${media.title}` : `Open ${media.title}`}
-        >
-          <Play class="h-6 w-6 translate-x-0.5 fill-white text-white" />
-        </span>
-        {#if isResumeCard}
-          <span class="rounded-full bg-black/70 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/90 backdrop-blur-sm">
-            Resume
-          </span>
-        {/if}
-      </div>
+      <button
+        type="button"
+        class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary shadow-glow ring-1 ring-white/30 transition-transform hover:scale-110"
+        aria-label={`Play ${media.title}`}
+      >
+        <Play class="h-6 w-6 translate-x-0.5 fill-white text-white" />
+      </button>
     </div>
 
     <!-- Watched badge: shown when fully watched (library flag) OR near-complete (≥90% progress).

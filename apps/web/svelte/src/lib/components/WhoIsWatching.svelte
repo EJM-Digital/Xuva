@@ -8,24 +8,11 @@
   import PinPad from './PinPad.svelte';
 
   interface Props {
-    /**
-     * Called when a profile has been successfully selected and stored.
-     * The `remember` flag mirrors the checkbox state at the moment of
-     * selection — true means the parent should persist the choice in
-     * device-scoped storage (localStorage) so the picker is skipped on
-     * future tabs/browser sessions; false keeps it tab-scoped only.
-     */
-    onselect?: (profile: ProfileCard, remember: boolean) => void;
+    /** Called when a profile has been successfully selected and stored. */
+    onselect?: (profile: ProfileCard) => void;
   }
 
   let { onselect }: Props = $props();
-
-  // #418 sibling — "Remember me on this device" checkbox on the picker.
-  // Off by default per the user's "ask each browser session" call. When
-  // ticked, the parent (+layout.svelte) writes the selected profile to
-  // localStorage instead of sessionStorage, so the picker stops appearing
-  // on new tabs and browser restarts until logout.
-  let rememberOnDevice = $state(false);
 
   // ── State ────────────────────────────────────────────────────────────────
   let profiles = $state<ProfileCard[]>([]);
@@ -131,7 +118,7 @@
       profileStore.setActiveProfile(resp.profile);
       pinStep = null;
       pendingProfile = null;
-      onselect?.(resp.profile, rememberOnDevice);
+      onselect?.(resp.profile);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : '';
       if (msg.toLowerCase().includes('incorrect pin') || msg.toLowerCase().includes('pin')) {
@@ -249,22 +236,9 @@
     </div>
   {/if}
 
-  <!-- Remember me on this device + Manage profiles. Both hidden during the
-       loading skeleton so they don't flash before profiles resolve.
-       Stacked vertically with the checkbox above the link. -->
-  {#if loaded && !loadError && profiles.length > 0}
-    <label class="absolute bottom-20 flex cursor-pointer select-none items-center gap-2.5 text-xs text-muted-foreground">
-      <input
-        type="checkbox"
-        bind:checked={rememberOnDevice}
-        class="h-3.5 w-3.5 rounded border-border bg-background/40 text-primary focus:ring-2 focus:ring-primary/40"
-      />
-      <span>
-        Remember me on this device <span class="text-muted-foreground/60">(skip the picker on this browser)</span>
-      </span>
-    </label>
-  {/if}
-
+  <!-- Manage profiles link — visible exit to Settings for adding or editing
+       profiles. Hidden during the loading skeleton so it doesn't flash before
+       we know whether profiles exist at all. -->
   {#if loaded && !loadError}
     <a
       href="/settings"
