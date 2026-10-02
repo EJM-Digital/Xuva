@@ -18,7 +18,7 @@
     "bonjour-service": "^1.2.1"
   },
   "devDependencies": {
-    "electron": "^39.8.5",
+    "electron": "^41.10.6",
     "electron-builder": "^26.15.3"
   },
   "build": {
