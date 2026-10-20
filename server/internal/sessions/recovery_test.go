@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/database"
-	"github.com/jampat000/Xuva/server/internal/events"
-	runtimestore "github.com/jampat000/Xuva/server/internal/runtime"
+	"github.com/EJM-Digital/Xuva/server/internal/database"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
+	runtimestore "github.com/EJM-Digital/Xuva/server/internal/runtime"
 )
 
 func TestPersistentServiceRecoversRecentSession(t *testing.T) {

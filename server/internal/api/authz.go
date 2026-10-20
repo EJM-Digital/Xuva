@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/auth"
+	"github.com/EJM-Digital/Xuva/server/internal/auth"
 )
 
 const (

@@ -13,7 +13,7 @@ import (
 	"path/filepath"
 	"syscall"
 
-	"github.com/jampat000/Xuva/server/internal/updater"
+	"github.com/EJM-Digital/Xuva/server/internal/updater"
 )
 
 // CREATE_NO_WINDOW keeps the detached applier (and the msiexec it launches) from

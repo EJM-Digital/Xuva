@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
 )
 
 // Notification is a persisted in-app notification surfaced in the bell drawer.

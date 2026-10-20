@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
 )
 
 func TestInspectorIncludesRouteReasonTracksAndLoad(t *testing.T) {

@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/jampat000/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
 )
 
 func withSecurity(deps Deps, next http.Handler) http.Handler {

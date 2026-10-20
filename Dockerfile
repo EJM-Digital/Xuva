@@ -45,7 +45,7 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
     --mount=type=cache,target=/go/pkg/mod \
     CGO_ENABLED=0 GOOS=linux go build \
     -trimpath \
-    -ldflags="-s -w -X github.com/jampat000/Xuva/server/internal/buildinfo.Version=${XUVA_VERSION} -X github.com/jampat000/Xuva/server/internal/buildinfo.Commit=${XUVA_COMMIT} -X github.com/jampat000/Xuva/server/internal/buildinfo.Date=${XUVA_BUILD_DATE} -X github.com/jampat000/Xuva/server/internal/config.DefaultTMDBAPIKey=${XUVA_DEFAULT_TMDB_API_KEY} -X github.com/jampat000/Xuva/server/internal/config.DefaultFanartTVAPIKey=${XUVA_DEFAULT_FANARTTV_API_KEY} -X github.com/jampat000/Xuva/server/internal/config.DefaultOMDbAPIKey=${XUVA_DEFAULT_OMDB_API_KEY}" \
+    -ldflags="-s -w -X github.com/EJM-Digital/Xuva/server/internal/buildinfo.Version=${XUVA_VERSION} -X github.com/EJM-Digital/Xuva/server/internal/buildinfo.Commit=${XUVA_COMMIT} -X github.com/EJM-Digital/Xuva/server/internal/buildinfo.Date=${XUVA_BUILD_DATE} -X github.com/EJM-Digital/Xuva/server/internal/config.DefaultTMDBAPIKey=${XUVA_DEFAULT_TMDB_API_KEY} -X github.com/EJM-Digital/Xuva/server/internal/config.DefaultFanartTVAPIKey=${XUVA_DEFAULT_FANARTTV_API_KEY} -X github.com/EJM-Digital/Xuva/server/internal/config.DefaultOMDbAPIKey=${XUVA_DEFAULT_OMDB_API_KEY}" \
     -o /xuva ./cmd/Xuva
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -112,9 +112,9 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=30s --retries=3 \
 # stamps via build-push-action.
 LABEL org.opencontainers.image.title="Xuva" \
       org.opencontainers.image.description="Self-hosted media server — browse, scan, transcode, and stream your library." \
-      org.opencontainers.image.url="https://github.com/jampat000/Xuva" \
-      org.opencontainers.image.source="https://github.com/jampat000/Xuva" \
-      org.opencontainers.image.documentation="https://github.com/jampat000/Xuva#readme" \
+      org.opencontainers.image.url="https://github.com/EJM-Digital/Xuva" \
+      org.opencontainers.image.source="https://github.com/EJM-Digital/Xuva" \
+      org.opencontainers.image.documentation="https://github.com/EJM-Digital/Xuva#readme" \
       org.opencontainers.image.licenses="MIT" \
       org.opencontainers.image.vendor="Xuva" \
       org.opencontainers.image.version="${XUVA_VERSION}"

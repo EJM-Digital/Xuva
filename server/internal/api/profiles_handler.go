@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/jampat000/Xuva/server/internal/auth"
+	"github.com/EJM-Digital/Xuva/server/internal/auth"
 )
 
 // profilesListHandler — GET /api/profiles

@@ -6,9 +6,9 @@
   "author": {
     "name": "Xuva",
     "email": "hello@xuva.app",
-    "url": "https://github.com/jampat000/Xuva"
+    "url": "https://github.com/EJM-Digital/Xuva"
   },
-  "homepage": "https://github.com/jampat000/Xuva",
+  "homepage": "https://github.com/EJM-Digital/Xuva",
   "main": "main.js",
   "scripts": {
     "dev": "electron .",

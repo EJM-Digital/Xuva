@@ -1,6 +1,6 @@
 [Unit]
 Description=Xuva media server
-Documentation=https://github.com/jampat000/xuva
+Documentation=https://github.com/EJM-Digital/Xuva
 After=network-online.target
 Wants=network-online.target
 

@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/buildinfo"
-	"github.com/jampat000/Xuva/server/internal/config"
-	"github.com/jampat000/Xuva/server/internal/updater"
+	"github.com/EJM-Digital/Xuva/server/internal/buildinfo"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/updater"
 )
 
 // This file is the DESKTOP/tray update path: it checks the release feed and
@@ -101,7 +101,7 @@ func checkForUpdates(ctx context.Context, cfg config.Config) (updateStatus, erro
 	status.PublishedAt = release.PublishedAt
 	status.Assets = release.Assets
 	status.UpdateAvailable = updater.CompareVersions(release.Version, current) > 0
-	status.DockerImage = "ghcr.io/jampat000/xuva:" + release.Version
+	status.DockerImage = "ghcr.io/ejm-digital/xuva:" + release.Version
 	return status, nil
 }
 

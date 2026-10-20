@@ -3,7 +3,7 @@ package api
 import (
 	"net/http"
 
-	"github.com/jampat000/Xuva/server/internal/notifications"
+	"github.com/EJM-Digital/Xuva/server/internal/notifications"
 )
 
 // notificationsListHandler returns undismissed notifications for the bell drawer.

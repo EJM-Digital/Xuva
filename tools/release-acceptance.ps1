@@ -422,7 +422,7 @@ if ($WindowsInstaller -eq "") {
 	$WindowsInstaller = Join-Path (Resolve-Path ".") "dist\windows\xuva-$Version-win-x64.exe"
 }
 if ($DockerImage -eq "") {
-	$DockerImage = "ghcr.io/jampat000/xuva:$Version"
+	$DockerImage = "ghcr.io/ejm-digital/xuva:$Version"
 }
 
 Write-Step "Release acceptance for $Version at $Commit"

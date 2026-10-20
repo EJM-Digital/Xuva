@@ -12,9 +12,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/events"
-	"github.com/jampat000/Xuva/server/internal/jobs"
-	runtimestore "github.com/jampat000/Xuva/server/internal/runtime"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/jobs"
+	runtimestore "github.com/EJM-Digital/Xuva/server/internal/runtime"
 )
 
 type Status string

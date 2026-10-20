@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/database"
+	"github.com/EJM-Digital/Xuva/server/internal/database"
 )
 
 const DefaultUserID = "local"

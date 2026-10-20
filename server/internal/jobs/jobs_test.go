@@ -5,7 +5,7 @@ import (
 	"errors"
 	"testing"
 
-	"github.com/jampat000/Xuva/server/internal/resources"
+	"github.com/EJM-Digital/Xuva/server/internal/resources"
 )
 
 func TestRegistryUsesSeparateQueues(t *testing.T) {

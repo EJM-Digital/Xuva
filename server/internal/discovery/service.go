@@ -14,7 +14,7 @@ import (
 
 	"github.com/hashicorp/mdns"
 
-	"github.com/jampat000/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
 )
 
 const (

@@ -11,8 +11,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/database"
-	"github.com/jampat000/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/database"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
 )
 
 const (

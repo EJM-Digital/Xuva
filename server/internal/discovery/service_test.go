@@ -6,7 +6,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/jampat000/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
 )
 
 type testAnnouncer struct {

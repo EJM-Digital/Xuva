@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/buildinfo"
-	"github.com/jampat000/Xuva/server/internal/updater"
+	"github.com/EJM-Digital/Xuva/server/internal/buildinfo"
+	"github.com/EJM-Digital/Xuva/server/internal/updater"
 )
 
 // updateApplier applies a verified MSI. It's an interface so the check/verify

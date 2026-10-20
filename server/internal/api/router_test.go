@@ -21,35 +21,35 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/auth"
-	"github.com/jampat000/Xuva/server/internal/buildinfo"
-	"github.com/jampat000/Xuva/server/internal/catalog"
-	"github.com/jampat000/Xuva/server/internal/config"
-	"github.com/jampat000/Xuva/server/internal/database"
-	"github.com/jampat000/Xuva/server/internal/devices"
-	"github.com/jampat000/Xuva/server/internal/discovery"
-	"github.com/jampat000/Xuva/server/internal/downloads"
-	"github.com/jampat000/Xuva/server/internal/events"
-	"github.com/jampat000/Xuva/server/internal/jobs"
-	"github.com/jampat000/Xuva/server/internal/libraries"
-	"github.com/jampat000/Xuva/server/internal/media"
-	metaprovider "github.com/jampat000/Xuva/server/internal/metadata"
-	"github.com/jampat000/Xuva/server/internal/migration"
-	"github.com/jampat000/Xuva/server/internal/movies"
-	"github.com/jampat000/Xuva/server/internal/observability"
-	"github.com/jampat000/Xuva/server/internal/pairing"
-	"github.com/jampat000/Xuva/server/internal/playback"
-	"github.com/jampat000/Xuva/server/internal/playstate"
-	"github.com/jampat000/Xuva/server/internal/probe"
-	"github.com/jampat000/Xuva/server/internal/probes"
-	"github.com/jampat000/Xuva/server/internal/resources"
-	"github.com/jampat000/Xuva/server/internal/scanner"
-	"github.com/jampat000/Xuva/server/internal/scans"
-	"github.com/jampat000/Xuva/server/internal/sessions"
-	"github.com/jampat000/Xuva/server/internal/streaming"
-	"github.com/jampat000/Xuva/server/internal/subtitles"
-	"github.com/jampat000/Xuva/server/internal/transcode"
-	"github.com/jampat000/Xuva/server/internal/tv"
+	"github.com/EJM-Digital/Xuva/server/internal/auth"
+	"github.com/EJM-Digital/Xuva/server/internal/buildinfo"
+	"github.com/EJM-Digital/Xuva/server/internal/catalog"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/database"
+	"github.com/EJM-Digital/Xuva/server/internal/devices"
+	"github.com/EJM-Digital/Xuva/server/internal/discovery"
+	"github.com/EJM-Digital/Xuva/server/internal/downloads"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/jobs"
+	"github.com/EJM-Digital/Xuva/server/internal/libraries"
+	"github.com/EJM-Digital/Xuva/server/internal/media"
+	metaprovider "github.com/EJM-Digital/Xuva/server/internal/metadata"
+	"github.com/EJM-Digital/Xuva/server/internal/migration"
+	"github.com/EJM-Digital/Xuva/server/internal/movies"
+	"github.com/EJM-Digital/Xuva/server/internal/observability"
+	"github.com/EJM-Digital/Xuva/server/internal/pairing"
+	"github.com/EJM-Digital/Xuva/server/internal/playback"
+	"github.com/EJM-Digital/Xuva/server/internal/playstate"
+	"github.com/EJM-Digital/Xuva/server/internal/probe"
+	"github.com/EJM-Digital/Xuva/server/internal/probes"
+	"github.com/EJM-Digital/Xuva/server/internal/resources"
+	"github.com/EJM-Digital/Xuva/server/internal/scanner"
+	"github.com/EJM-Digital/Xuva/server/internal/scans"
+	"github.com/EJM-Digital/Xuva/server/internal/sessions"
+	"github.com/EJM-Digital/Xuva/server/internal/streaming"
+	"github.com/EJM-Digital/Xuva/server/internal/subtitles"
+	"github.com/EJM-Digital/Xuva/server/internal/transcode"
+	"github.com/EJM-Digital/Xuva/server/internal/tv"
 )
 
 func TestHealthUsesStableStartedAt(t *testing.T) {
@@ -98,12 +98,12 @@ func TestSystemUpdatesCheckComparesLatestRelease(t *testing.T) {
 		}
 		writeJSON(w, http.StatusOK, map[string]any{
 			"tag_name":     "v0.0.5",
-			"html_url":     "https://github.com/jampat000/Xuva/releases/tag/v0.0.5",
+			"html_url":     "https://github.com/EJM-Digital/Xuva/releases/tag/v0.0.5",
 			"published_at": "2026-05-27T04:00:00Z",
 			"assets": []map[string]any{
 				{
 					"name":                 "xuva-v0.0.5-win-x64.exe",
-					"browser_download_url": "https://github.com/jampat000/Xuva/releases/download/v0.0.5/xuva-v0.0.5-win-x64.exe",
+					"browser_download_url": "https://github.com/EJM-Digital/Xuva/releases/download/v0.0.5/xuva-v0.0.5-win-x64.exe",
 					"size":                 123,
 					"digest":               "sha256:test",
 				},
@@ -148,7 +148,7 @@ func TestSystemUpdatesApplyStagesVerifiedInstaller(t *testing.T) {
 		case "/latest":
 			writeJSON(w, http.StatusOK, map[string]any{
 				"tag_name":     "v0.0.5",
-				"html_url":     "https://github.com/jampat000/Xuva/releases/tag/v0.0.5",
+				"html_url":     "https://github.com/EJM-Digital/Xuva/releases/tag/v0.0.5",
 				"published_at": "2026-05-27T04:00:00Z",
 				"assets": []map[string]any{
 					{
@@ -222,7 +222,7 @@ func TestSystemUpdatesApplyPrefersMSIOverNSIS(t *testing.T) {
 		case "/latest":
 			writeJSON(w, http.StatusOK, map[string]any{
 				"tag_name":     "v0.0.5",
-				"html_url":     "https://github.com/jampat000/Xuva/releases/tag/v0.0.5",
+				"html_url":     "https://github.com/EJM-Digital/Xuva/releases/tag/v0.0.5",
 				"published_at": "2026-05-27T04:00:00Z",
 				"assets": []map[string]any{
 					{

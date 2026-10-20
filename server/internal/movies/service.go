@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/media"
-	"github.com/jampat000/Xuva/server/internal/scanner"
+	"github.com/EJM-Digital/Xuva/server/internal/media"
+	"github.com/EJM-Digital/Xuva/server/internal/scanner"
 )
 
 type Movie struct {

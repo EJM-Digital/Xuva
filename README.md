@@ -2,7 +2,7 @@
 
 **A self-hosted media server you actually own.** Browse, organise, and stream your library to TV-first apps — without an account, a vendor relay, or ads.
 
-[![CI](https://github.com/jampat000/Xuva/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/jampat000/Xuva/actions/workflows/security.yml)
+[![CI](https://github.com/EJM-Digital/Xuva/actions/workflows/security.yml/badge.svg?branch=main)](https://github.com/EJM-Digital/Xuva/actions/workflows/security.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
@@ -20,7 +20,7 @@
 
 ### Windows
 
-Download the MSI from the [latest release](https://github.com/jampat000/Xuva/releases/latest) and double-click. The installer registers the engine, the SYSTEM service, ffmpeg, firewall rules, and the auto-updater task in one run.
+Download the MSI from the [latest release](https://github.com/EJM-Digital/Xuva/releases/latest) and double-click. The installer registers the engine, the SYSTEM service, ffmpeg, firewall rules, and the auto-updater task in one run.
 
 ```powershell
 # Or silent install (engine only, no auto-update):
@@ -40,7 +40,7 @@ docker run -d --name xuva \
   -e XUVA_MOVIES_PATH=/movies \
   -e XUVA_TV_PATH=/tv \
   -e PUID=1000 -e PGID=1000 \
-  ghcr.io/jampat000/xuva:latest
+  ghcr.io/ejm-digital/xuva:latest
 ```
 
 Or use the bundled `docker-compose.yml` as a starting point (includes security hardening, log rotation, and resource-limit examples).
@@ -48,7 +48,7 @@ Or use the bundled `docker-compose.yml` as a starting point (includes security h
 ### Linux / macOS (from source)
 
 ```bash
-git clone https://github.com/jampat000/Xuva && cd Xuva/apps/web/svelte
+git clone https://github.com/EJM-Digital/Xuva && cd Xuva/apps/web/svelte
 npm ci && npm run publish:go-static
 cd ../../../server
 go build -o xuva ./cmd/Xuva
