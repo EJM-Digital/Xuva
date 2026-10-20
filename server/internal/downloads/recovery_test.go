@@ -6,11 +6,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/database"
-	"github.com/jampat000/Xuva/server/internal/events"
-	"github.com/jampat000/Xuva/server/internal/jobs"
-	"github.com/jampat000/Xuva/server/internal/resources"
-	runtimestore "github.com/jampat000/Xuva/server/internal/runtime"
+	"github.com/EJM-Digital/Xuva/server/internal/database"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/jobs"
+	"github.com/EJM-Digital/Xuva/server/internal/resources"
+	runtimestore "github.com/EJM-Digital/Xuva/server/internal/runtime"
 )
 
 func TestPersistentServiceFailsInterruptedDownloadJob(t *testing.T) {

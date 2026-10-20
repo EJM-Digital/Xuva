@@ -10,9 +10,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/events"
-	"github.com/jampat000/Xuva/server/internal/jobs"
-	"github.com/jampat000/Xuva/server/internal/resources"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/jobs"
+	"github.com/EJM-Digital/Xuva/server/internal/resources"
 )
 
 func TestClassifyFailureKnownErrors(t *testing.T) {

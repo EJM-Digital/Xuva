@@ -31,9 +31,9 @@ import (
 //
 // RELEASE BUILD:
 //   go build -ldflags "\
-//     -X 'github.com/jampat000/Xuva/server/internal/config.DefaultTMDBAPIKey=$TMDB_KEY' \
-//     -X 'github.com/jampat000/Xuva/server/internal/config.DefaultFanartTVAPIKey=$FANART_KEY' \
-//     -X 'github.com/jampat000/Xuva/server/internal/config.DefaultOMDbAPIKey=$OMDB_KEY' \
+//     -X 'github.com/EJM-Digital/Xuva/server/internal/config.DefaultTMDBAPIKey=$TMDB_KEY' \
+//     -X 'github.com/EJM-Digital/Xuva/server/internal/config.DefaultFanartTVAPIKey=$FANART_KEY' \
+//     -X 'github.com/EJM-Digital/Xuva/server/internal/config.DefaultOMDbAPIKey=$OMDB_KEY' \
 //   " ./cmd/xuva
 //
 // DEV BUILD:

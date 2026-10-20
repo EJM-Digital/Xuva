@@ -2,7 +2,7 @@
 
 package main
 
-import "github.com/jampat000/Xuva/server/internal/config"
+import "github.com/EJM-Digital/Xuva/server/internal/config"
 
 // These are no-op stubs on non-Windows platforms so main.go can call the service
 // hooks unconditionally. The Windows implementations live in service_windows.go.

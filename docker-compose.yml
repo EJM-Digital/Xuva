@@ -1,6 +1,6 @@
 services:
   xuva:
-    image: ghcr.io/jampat000/xuva:latest
+    image: ghcr.io/ejm-digital/xuva:latest
     container_name: xuva
     restart: unless-stopped
     ports:

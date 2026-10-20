@@ -6,7 +6,7 @@ import (
 	"sync"
 	"sync/atomic"
 
-	"github.com/jampat000/Xuva/server/internal/resources"
+	"github.com/EJM-Digital/Xuva/server/internal/resources"
 )
 
 type Job func(context.Context)

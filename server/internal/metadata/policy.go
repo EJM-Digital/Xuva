@@ -4,8 +4,8 @@ import (
 	"context"
 	"strings"
 
-	"github.com/jampat000/Xuva/server/internal/config"
-	"github.com/jampat000/Xuva/server/internal/metasources"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/metasources"
 )
 
 func (s *Service) sourceOrder(ctx context.Context, request RefreshRequest) []string {

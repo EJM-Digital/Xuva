@@ -21,12 +21,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/buildinfo"
+	"github.com/EJM-Digital/Xuva/server/internal/buildinfo"
 )
 
 // DefaultReleaseAPI is the GitHub "latest release" endpoint polled when
 // XUVA_UPDATE_RELEASE_API is unset.
-const DefaultReleaseAPI = "https://api.github.com/repos/jampat000/Xuva/releases/latest"
+const DefaultReleaseAPI = "https://api.github.com/repos/EJM-Digital/Xuva/releases/latest"
 
 // MaxDownloadBytes caps a single asset download so a hostile or broken feed
 // can't fill the disk. Comfortably larger than the ~108MB MSI.

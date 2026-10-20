@@ -16,12 +16,12 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/app"
-	"github.com/jampat000/Xuva/server/internal/backup"
-	"github.com/jampat000/Xuva/server/internal/config"
-	"github.com/jampat000/Xuva/server/internal/firewall"
-	xuvalogging "github.com/jampat000/Xuva/server/internal/logging"
-	"github.com/jampat000/Xuva/server/internal/tlscert"
+	"github.com/EJM-Digital/Xuva/server/internal/app"
+	"github.com/EJM-Digital/Xuva/server/internal/backup"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/firewall"
+	xuvalogging "github.com/EJM-Digital/Xuva/server/internal/logging"
+	"github.com/EJM-Digital/Xuva/server/internal/tlscert"
 )
 
 // portFromHTTPAddr extracts the TCP port from a Go ListenAndServe addr.

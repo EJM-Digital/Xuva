@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jampat000/Xuva/server/internal/buildinfo"
+	"github.com/EJM-Digital/Xuva/server/internal/buildinfo"
 )
 
 type fakeApplier struct {

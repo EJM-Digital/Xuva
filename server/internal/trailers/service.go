@@ -27,7 +27,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
 )
 
 // Catalog is the subset of catalog.Service the trailer worker needs. Keeping

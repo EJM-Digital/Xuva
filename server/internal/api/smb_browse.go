@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/config"
-	"github.com/jampat000/Xuva/server/internal/secret"
-	"github.com/jampat000/Xuva/server/internal/smb"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/secret"
+	"github.com/EJM-Digital/Xuva/server/internal/smb"
 )
 
 // smbCredential is the plaintext shape sealed into Config.NetworkCredentials.

@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/database"
+	"github.com/EJM-Digital/Xuva/server/internal/database"
 )
 
 func TestCreateApproveAndHideCodeAfterApproval(t *testing.T) {

@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/catalog"
-	"github.com/jampat000/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/catalog"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
 )
 
 func (s *Service) refreshFanart(ctx context.Context, request RefreshRequest, order []string, cfg config.Config, result *RefreshResult) error {

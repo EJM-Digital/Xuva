@@ -4,7 +4,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jampat000/Xuva/server/internal/secret"
+	"github.com/EJM-Digital/Xuva/server/internal/secret"
 )
 
 func TestSMBCredentialSealOpenRoundTrip(t *testing.T) {

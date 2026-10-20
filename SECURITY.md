@@ -19,7 +19,7 @@ Security fixes are issued against the latest stable release. Older patch version
 
 Please use GitHub Security Advisories for private disclosure:
 
-- [Xuva Security Advisories](https://github.com/jampat000/Xuva/security/advisories)
+- [Xuva Security Advisories](https://github.com/EJM-Digital/Xuva/security/advisories)
 
 Do not open public issues for active vulnerabilities.
 

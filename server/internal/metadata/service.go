@@ -13,10 +13,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/catalog"
-	"github.com/jampat000/Xuva/server/internal/config"
-	"github.com/jampat000/Xuva/server/internal/events"
-	"github.com/jampat000/Xuva/server/internal/trailers"
+	"github.com/EJM-Digital/Xuva/server/internal/catalog"
+	"github.com/EJM-Digital/Xuva/server/internal/config"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/trailers"
 )
 
 type Service struct {

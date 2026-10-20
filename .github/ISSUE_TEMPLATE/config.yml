@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
   - name: Security vulnerability
-    url: https://github.com/jampat000/Xuva/security/advisories
+    url: https://github.com/EJM-Digital/Xuva/security/advisories
     about: Please report security issues privately via GitHub Security Advisories — not as public issues.

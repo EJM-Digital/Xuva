@@ -205,20 +205,20 @@ try {
     $ldflagsParts = @(
         "-s",
         "-w",
-        "-X github.com/jampat000/Xuva/server/internal/buildinfo.Version=$Version",
-        "-X github.com/jampat000/Xuva/server/internal/buildinfo.Commit=$gitCommit",
-        "-X github.com/jampat000/Xuva/server/internal/buildinfo.Date=$buildDate"
+        "-X github.com/EJM-Digital/Xuva/server/internal/buildinfo.Version=$Version",
+        "-X github.com/EJM-Digital/Xuva/server/internal/buildinfo.Commit=$gitCommit",
+        "-X github.com/EJM-Digital/Xuva/server/internal/buildinfo.Date=$buildDate"
     )
     # Embed the default metadata API keys when CI provides them (same as the
     # desktop/NSIS build) so an MSI-installed server has working defaults.
     if (-not [string]::IsNullOrWhiteSpace($env:XUVA_DEFAULT_TMDB_API_KEY)) {
-        $ldflagsParts += "-X github.com/jampat000/Xuva/server/internal/config.DefaultTMDBAPIKey=$($env:XUVA_DEFAULT_TMDB_API_KEY)"
+        $ldflagsParts += "-X github.com/EJM-Digital/Xuva/server/internal/config.DefaultTMDBAPIKey=$($env:XUVA_DEFAULT_TMDB_API_KEY)"
     }
     if (-not [string]::IsNullOrWhiteSpace($env:XUVA_DEFAULT_FANARTTV_API_KEY)) {
-        $ldflagsParts += "-X github.com/jampat000/Xuva/server/internal/config.DefaultFanartTVAPIKey=$($env:XUVA_DEFAULT_FANARTTV_API_KEY)"
+        $ldflagsParts += "-X github.com/EJM-Digital/Xuva/server/internal/config.DefaultFanartTVAPIKey=$($env:XUVA_DEFAULT_FANARTTV_API_KEY)"
     }
     if (-not [string]::IsNullOrWhiteSpace($env:XUVA_DEFAULT_OMDB_API_KEY)) {
-        $ldflagsParts += "-X github.com/jampat000/Xuva/server/internal/config.DefaultOMDbAPIKey=$($env:XUVA_DEFAULT_OMDB_API_KEY)"
+        $ldflagsParts += "-X github.com/EJM-Digital/Xuva/server/internal/config.DefaultOMDbAPIKey=$($env:XUVA_DEFAULT_OMDB_API_KEY)"
     }
     $ldflags = $ldflagsParts -join " "
     & go build -trimpath "-ldflags=$ldflags" -o $serverExe ".\cmd\Xuva"

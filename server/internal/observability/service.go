@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/events"
+	"github.com/EJM-Digital/Xuva/server/internal/events"
 )
 
 type contextKey string

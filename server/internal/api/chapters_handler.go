@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/auth"
-	"github.com/jampat000/Xuva/server/internal/chapters"
+	"github.com/EJM-Digital/Xuva/server/internal/auth"
+	"github.com/EJM-Digital/Xuva/server/internal/chapters"
 )
 
 func chaptersGetHandler(deps Deps) http.HandlerFunc {

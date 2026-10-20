@@ -1,4 +1,4 @@
-module github.com/jampat000/Xuva/server
+module github.com/EJM-Digital/Xuva/server
 
 go 1.26.5
 

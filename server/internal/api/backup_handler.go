@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/jampat000/Xuva/server/internal/backup"
+	"github.com/EJM-Digital/Xuva/server/internal/backup"
 )
 
 // backupExportHandler streams a .tar.gz archive of xuva.db + settings.json + manifest.json.
