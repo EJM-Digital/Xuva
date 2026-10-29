@@ -27,7 +27,7 @@
 		"@testing-library/jest-dom": "^6.6.3",
 		"@testing-library/svelte": "^5.2.7",
 		"@types/node": "^24.10.1",
-		"happy-dom": "^20.9.0",
+		"happy-dom": "^21.0.4",
 		"svelte": "^5.55.2",
 		"svelte-check": "^4.4.6",
 		"tailwindcss": "^4.3.0",
